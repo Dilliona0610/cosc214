@@ -1,0 +1,19 @@
+import java.util.Stack;
+
+public class StackExample {
+    public static void main(String[] args) {
+        Stack<String> stringStack = new Stack<>();
+        
+        // Push 5 strings onto the stack
+        stringStack.push("Apple");
+        stringStack.push("Banana");
+        stringStack.push("Cherry");
+        stringStack.push("Date");
+        stringStack.push("Elderberry");
+        
+        System.out.println("Printing Stack Elements");
+        while (!stringStack.isEmpty()) {
+            System.out.println(stringStack.pop());
+        }
+    }
+}
