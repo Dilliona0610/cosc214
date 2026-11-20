@@ -1,0 +1,21 @@
+class Solution {
+    public int lastStoneWeight(int[] stones) {
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+
+        // Insert all stones into the Max Heap
+        for (int stone : stones) {
+            maxHeap.add(stone);
+        }
+
+        // Smash the two heaviest stones until at most one remains
+        while (maxHeap.size() > 1) {
+            int y = maxHeap.poll(); // Heaviest stone
+            int x = maxHeap.poll(); // Second heaviest stone
+            if (y != x) {
+                maxHeap.add(y - x);
+            }
+        }
+
+        return maxHeap.isEmpty() ? 0 : maxHeap.peek();
+    }
+}
